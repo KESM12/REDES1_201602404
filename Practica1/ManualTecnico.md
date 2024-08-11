@@ -103,7 +103,7 @@ La captura de paquetes se realizó para analizar el tráfico ARP/ICMP entre la V
 
 ### 3.2. Captura de Pantalla
 
-![Captura de Paquete ARP/ICMP](ruta/a/la/captura16.png)
+![Captura de Paquete ARP/ICMP](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/ARP-ICMP.jpg)
 
 
 [vpcAdminConfig]: (https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/ARP-ICMP.jpg)
