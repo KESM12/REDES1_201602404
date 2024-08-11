@@ -42,7 +42,7 @@
 
 - **IP Asignada:** 192.168.04.29
 
-![IpOfB](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC14_OFC1.jpg)
+![IpOfB](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC14_OFB1.jpg)
 
 ### 1.8. VPC de Recepción
 
