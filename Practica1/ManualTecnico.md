@@ -6,7 +6,7 @@
 
 - **IP Asignada:** 192.168.4.10
 
-![Config Admin](Practica1/imagenes/PC0_ADMIN.jpg)
+![Config Admin](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC0_ADMIN.jpg)
 
 ### 1.2. VPC de Gerencia
 
