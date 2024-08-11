@@ -6,117 +6,99 @@
 
 - **IP Asignada:** 192.168.4.10
 
-![Config Admin](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC0_ADMIN.jpg)
+![IpAdmin](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC0_ADMIN.jpg)
 
 ### 1.2. VPC de Gerencia
 
-- **IP Asignada:** 192.168.04.12
+- **IP Asignada:** 192.168.04.11
 
-![Configuración VPC Gerencia](ruta/a/la/captura2.png)
+![IpGeren](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC1_GEREN.jpg)
 
-### 1.3. VPC de Secretaría de Gerencia
+### 1.3. VPC de Soporte al Cliente 
 
 - **IP Asignada:** 192.168.04.13
 
-![Configuración VPC Secretaría](ruta/a/la/captura3.png)
+![IpSopClient1](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC2_SCLIENT0.jpg)
 
-### 1.4. VPC de Atención al Cliente 1
-
-- **IP Asignada:** 192.168.04.14
-
-![Configuración VPC Atención al Cliente 1](ruta/a/la/captura4.png)
-
-### 1.5. VPC de Atención al Cliente 2
+### 1.4. VPC de Recursos Humanos
 
 - **IP Asignada:** 192.168.04.15
-- **Configuración:**
-    - **Puerta de Enlace:** 192.168.04.1
-    - **Máscara de Subred:** 255.255.255.0
+![IpRecHuman](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC4_RECHUMAN0.jpg)
 
-![Configuración VPC Atención al Cliente 2](ruta/a/la/captura5.png)
+### 1.5. VPC de Oficina A 
 
-### 1.6. VPC de Recursos Humanos 1
+- **IP Asignada:** 192.168.04.2
 
-- **IP Asignada:** 192.168.04.16
-- **Configuración:**
-    - **Puerta de Enlace:** 192.168.04.1
-    - **Máscara de Subred:** 255.255.255.0
+![IpOfA](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC11_OFA1.jpg)
 
-![Configuración VPC Recursos Humanos 1](ruta/a/la/captura6.png)
+### 1.6. VPC de Oficina B 
 
-### 1.7. VPC de Recursos Humanos 2
+- **IP Asignada:** 192.168.04.23
 
-- **IP Asignada:** 192.168.04.17
-- **Configuración:**
-    - **Puerta de Enlace:** 192.168.04.1
-    - **Máscara de Subred:** 255.255.255.0
+![IpOfB](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC14_OFB1.jpg)
 
-![Configuración VPC Recursos Humanos 2](ruta/a/la/captura7.png)
+### 1.7. VPC de Oficina C
 
-### 1.8. VPC de Oficina A 1
+- **IP Asignada:** 192.168.04.29
+
+![IpOfB](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC14_OFC1.jpg)
+
+### 1.8. VPC de Recepción
+
+- **IP Asignada:** 192.168.04.3
+
+![IpRec](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC23-REC.jpg)
+
+### 1.9. VPC de TI.
 
 - **IP Asignada:** 192.168.04.31
-- **Configuración:**
-    - **Puerta de Enlace:** 192.168.04.2
-    - **Máscara de Subred:** 255.255.255.0
 
-![Configuración VPC Oficina A 1](ruta/a/la/captura8.png)
+![IpTI](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC24-TI1.jpg)
 
-### 1.9. VPC de Oficina B 1
+### 1.10. VPC de Ventas.
 
 - **IP Asignada:** 192.168.04.34
-- **Configuración:**
-    - **Puerta de Enlace:** 192.168.04.2
-    - **Máscara de Subred:** 255.255.255.0
 
-![Configuración VPC Oficina B 1](ruta/a/la/captura9.png)
+![IpTI](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC2_SCLIENT0.jpg)
 
-### 1.10. VPC de Recepción
-
-- **IP Asignada:** 192.168.04.51
-- **Configuración:**
-    - **Puerta de Enlace:** 192.168.04.3
-    - **Máscara de Subred:** 255.255.255.0
-
-![Configuración VPC Recepción](ruta/a/la/captura10.png)
 
 ## 2. Pruebas de Comunicación entre Áreas
 
-### 2.1. Ping desde VPC de Administración a VPC de Gerencia
+### 2.1. Ping desde VPC de Oficina B6 a VPC de Recurso Humanos 5
+
+- **Comando:** `ping 192.168.04.1`
+
+![Ping Ofb6 a RecHuman5](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PING_OFB6_RECHUM5.jpg)
+
+### 2.2. Ping desde VPC de Recursos Humanos 3 a VPC de Secretaria del Gerente
 
 - **Comando:** `ping 192.168.04.12`
 
-![Ping Administración a Gerencia](ruta/a/la/captura11.png)
+![Ping RecHumn2 a Secgeren](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PING_RECHUM2_SECGEREN.jpg)
 
-### 2.2. Ping desde VPC de Atención al Cliente 1 a VPC de Recursos Humanos 1
+### 2.3. Ping desde VPC de Recursos Humanos a VPC de Recepción
 
-- **Comando:** `ping 192.168.04.16`
+- **Comando:** `ping 192.168.04.3`
 
-![Ping Atención al Cliente 1 a Recursos Humanos 1](ruta/a/la/captura12.png)
+![Ping Rechum0 a Rec](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PING_RECHUMAN0_REC.jpg)
 
-### 2.3. Ping desde VPC de Oficina A 1 a VPC de Oficina B 1
+### 2.4. Ping desde VPC de TI1 a VPC de Oficina A2
 
-- **Comando:** `ping 192.168.04.34`
+- **Comando:** `ping 192.168.04.21`
 
-![Ping Oficina A 1 a Oficina B 1](ruta/a/la/captura13.png)
+![Ping TI1 Ofa2](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PING_TI1_OFA2.jpg)
 
-### 2.4. Ping desde VPC de Recepción a VPC de TI 1
-
-- **Comando:** `ping 192.168.04.52`
-
-![Ping Recepción a TI 1](ruta/a/la/captura14.png)
-
-### 2.5. Ping desde VPC de Ventas a VPC de Administración
+### 2.5. Ping desde VPC de TI2 a VPC de Gerencia
 
 - **Comando:** `ping 192.168.04.11`
 
-![Ping Ventas a Administración](ruta/a/la/captura15.png)
+![Ping Ti2 a Geren](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PING_TI2_GEREN.jpg)
 
 ## 3. Captura de Paquete ARP/ICMP
 
 ### 3.1. Descripción de la Captura
 
-La captura de paquetes se realizó para analizar el tráfico ARP/ICMP entre la VPC de Recepción y la VPC de TI 1 durante una prueba de ping.
+La captura de paquetes se realizó para analizar el tráfico ARP/ICMP entre la VPC de Gerencia y la VPC de TI 1 durante una prueba de ping.
 
 ### 3.2. Captura de Pantalla
 
