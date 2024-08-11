@@ -23,6 +23,7 @@
 ### 1.4. VPC de Recursos Humanos
 
 - **IP Asignada:** 192.168.04.15
+
 ![IpRecHuman](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC4_RECHUMAN0.jpg)
 
 ### 1.5. VPC de Oficina A 
