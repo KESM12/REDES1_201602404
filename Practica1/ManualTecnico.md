@@ -99,7 +99,7 @@
 
 ### 3.1. Descripción de la Captura
 
-La captura de paquetes se realizó para analizar el tráfico ARP/ICMP entre la VPC de Gerencia y la VPC de TI 1 durante una prueba de ping.
+La captura de paquetes se realizó para analizar el tráfico ARP/ICMP entre la VPC de Gerencia (PC1) y la VPC de TI 1 (PC 25) durante una prueba de ping.
 
 ### 3.2. Captura de Pantalla
 
