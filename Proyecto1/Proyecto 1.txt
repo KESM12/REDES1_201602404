@@ -1,0 +1,89 @@
+Proyecto 1
+
+Departamentos sin existencia entre datos o sea vlans separadas
+e1 201602404
+e2 202102894
+ip y vlan con terminación 8 
+Departamento |vlan |id red
+Contabilidad |28   |192.168.18.0
+Secretaria   |38   |192.168.28.0
+RRHH	     |48   |192.168.38.0
+IT	     |58   |192.168.48.0
+
+Clientes: sw7, 8 y 10, 2, 3, 4, 5, y 6, 11, 12, 13
+Transparentes: 9
+Server: sw1 
+servidor vtp y raíz stp
+root bridge en sw1 para las vlan 18, 28, 38 y 48
+Dominio P9 contraseña usac
+implementar stp con la variante pvst
+
+Backbone
+conta 192.168.18.10
+it 192.168.48.10
+rrhh 192.168.38.10
+
+centro administrativo
+conta2 192.168.18.02
+secretaria 192.168.28.10
+rrhh 192.168.38.11
+it2 192.168.48.02
+
+Area de trabajo
+secretaria1 192.168.28.01
+it1 192.168.48.01
+conta1 192.168.18.01
+secretaria2 192.168.28.02
+rrhh1 192.168.38.01
+rrhh2 192.168.38.02
+
+Comandos para configurar el sw1 como servidor 
+enable
+configure terminal
+vtp domain P9
+vtp password usac
+vtp mode server
+vlan 28
+name Contabilidad
+exit
+vlan 38
+name Secretaria
+exit
+vlan 48
+name RRHH
+exit
+vlan 58
+name IT
+exit
+rapid-pvst vlan 28,38,48,58 priority 0
+interface range fa0/1-5
+switchport trunk allowed vlan 28,38,48,58
+exit
+
+Comandos para configurar los sw desde el 2 hasta el 13 evitando el 9
+enable
+configure terminal
+vtp domain P9
+vtp password usac
+vtp mode client
+interface fa0/1
+switchport mode trunk
+switchport trunk allowed vlan 28,38,48,58
+exit
+exit
+
+Comando para configurar el SW9 en modo transparent
+enable
+configure terminal
+vtp domain P9
+vtp password usac
+vtp mode transparent
+
+Comando para validar el modo stp en los switch
+enable
+show spanning-tree
+
+Comando para cambiar de psvt a rstp-rapid pvst porque configure como par xd  
+enable
+configure terminal
+spanning-tree mode rapid-pvst
