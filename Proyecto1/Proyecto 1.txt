@@ -19,23 +19,23 @@ Dominio P9 contraseña usac
 implementar stp con la variante pvst
 
 Backbone
-conta 192.168.18.10
-it 192.168.48.10
-rrhh 192.168.38.10
+S_CONTABILIDAD 192.168.18.10
+S_IT 192.168.48.10
+S_RRHH 192.168.38.10
 
 centro administrativo
-conta2 192.168.18.02
-secretaria 192.168.28.10
-rrhh 192.168.38.11
-it2 192.168.48.02
+CONTABILIDAD2 192.168.18.02
+SECRETARIA 192.168.28.10
+RRHH 192.168.38.11
+IT_2 192.168.48.02
 
 Area de trabajo
-secretaria1 192.168.28.01
-it1 192.168.48.01
-conta1 192.168.18.01
-secretaria2 192.168.28.02
-rrhh1 192.168.38.01
-rrhh2 192.168.38.02
+SECRETARIA1 192.168.28.01
+IT_1 192.168.48.01
+CONTABILIDAD_1 192.168.18.01
+SECRETARIA2 192.168.28.02
+RRHH1 192.168.38.01
+RRHH2 192.168.38.02
 
 Comandos para configurar el sw1 como servidor 
 enable
