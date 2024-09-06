@@ -1,109 +1,223 @@
-# Manual Técnico
+## Manual Técnico del Proyecto 1
+ LABORATORIO REDES DE COMPUTADORAS 1
+ Sección: A
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 
-## 1. Configuración de las VPCs
+### **Autor:**
 
-### 1.1. VPC de Administración
-
-- **IP Asignada:** 192.168.4.10
-
-![IpAdmin](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC0_ADMIN.jpg)
-
-### 1.2. VPC de Gerencia
-
-- **IP Asignada:** 192.168.04.11
-
-![IpGeren](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC1_GEREN.jpg)
-
-### 1.3. VPC de Soporte al Cliente 
-
-- **IP Asignada:** 192.168.04.13
-
-![IpSopClient1](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC2_SCLIENT0.jpg)
-
-### 1.4. VPC de Recursos Humanos
-
-- **IP Asignada:** 192.168.04.15
-
-![IpRecHuman](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC4_RECHUMAN0.jpg)
-
-### 1.5. VPC de Oficina A 
-
-- **IP Asignada:** 192.168.04.2
-
-![IpOfA](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC11_OFA1.jpg)
-
-### 1.6. VPC de Oficina B 
-
-- **IP Asignada:** 192.168.04.23
-
-![IpOfB](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC14_OFB1.jpg)
-
-### 1.7. VPC de Oficina C
-
-- **IP Asignada:** 192.168.04.29
-
-![IpOfB](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC14_OFB1.jpg)
-
-### 1.8. VPC de Recepción
-
-- **IP Asignada:** 192.168.04.3
-
-![IpRec](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC23-REC.jpg)
-
-### 1.9. VPC de TI.
-
-- **IP Asignada:** 192.168.04.31
-
-![IpTI](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC24-TI1.jpg)
-
-### 1.10. VPC de Ventas.
-
-- **IP Asignada:** 192.168.04.34
-
-![IpTI](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC2_SCLIENT0.jpg)
+- Kevin - Carnet: 201602404
+- Richard Alexandro Marroquin Arana - Carnet: 202102894
+#
+#
+#
+#
+#
+#
+### **Auxiliar:**
+- Carlos Roberto Quixtán Pérez
 
 
-## 2. Pruebas de Comunicación entre Áreas
 
-### 2.1. Ping desde VPC de Oficina B6 a VPC de Recurso Humanos 5
+### **Título:**
 
-- **Comando:** `ping 192.168.04.1`
+### Manual Técnico del Proyecto 1
+#
+#
+#
+#
 
-![Ping Ofb6 a RecHuman5](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PING_OFB6_RECHUM5.jpg)
-
-### 2.2. Ping desde VPC de Recursos Humanos 3 a VPC de Secretaria del Gerente
-
-- **Comando:** `ping 192.168.04.12`
-
-![Ping RecHumn2 a Secgeren](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PING_RECHUM2_SECGEREN.jpg)
-
-### 2.3. Ping desde VPC de Recursos Humanos a VPC de Recepción
-
-- **Comando:** `ping 192.168.04.3`
-
-![Ping Rechum0 a Rec](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PING_RECHUMAN0_REC.jpg)
-
-### 2.4. Ping desde VPC de TI1 a VPC de Oficina A2
-
-- **Comando:** `ping 192.168.04.21`
-
-![Ping TI1 Ofa2](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PING_TI1_OFA2.jpg)
-
-### 2.5. Ping desde VPC de TI2 a VPC de Gerencia
-
-- **Comando:** `ping 192.168.04.11`
-
-![Ping Ti2 a Geren](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PING_TI2_GEREN.jpg)
-
-## 3. Captura de Paquete ARP/ICMP
-
-### 3.1. Descripción de la Captura
-
-La captura de paquetes se realizó para analizar el tráfico ARP/ICMP entre la VPC de Gerencia (PC1) y la VPC de TI 1 (PC 25) durante una prueba de ping.
-
-### 3.2. Captura de Pantalla
-
-![Captura de Paquete ARP/ICMP](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/ARP-ICMP.jpg)
+#
+#
+#
+#
+#
+---
 
 
-[vpcAdminConfig]: (https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/ARP-ICMP.jpg)
+
+
+## Introducción
+Después de su demostración exitosa de conocimientos para la configuración de la red
+local de la empresa “Solución al Cliente S.A.” usted fue recomendado para trabajar en la
+construcción de una nueva red local, esta vez para la municipalidad de Guatemala.
+Ellos necesitan que se cree una red donde diferentes departamentos puedan coexistir,
+compartiendo el mismo medio físico, esto con el fin de ahorrar costos en instalación,
+además es importante para ellos que exista redundancia, esto debido a que partes críticas
+de la infraestructura de la municipalidad estarán en la red que se creará.
+#
+#
+#
+
+---
+## Resumen de direcciones IP y VLAN
+
+Departamentos sin existencia entre datos o sea vlans separadas
+
+Estudiante 1 201602404
+Estudiante 2 202102894
+
+Ip y vlan con terminación 8 
+
+| Departamento  | VLAN | ID Red         |
+|---------------|------|----------------|
+| Contabilidad  | 28   | 192.168.18.0   |
+| Secretaría    | 38   | 192.168.28.0   |
+| RRHH          | 48   | 192.168.38.0   |
+| IT            | 58   | 192.168.48.0   |
+
+
+## Configuración de Red
+
+### Clientes
+- sw7, 8 y 10
+- 2, 3, 4, 5 y 6
+- 11, 12, 13
+
+### Transparentes
+- 9
+
+### Server
+- sw1 (servidor VTP y raíz STP)
+- Root bridge en sw1 para las VLAN 18, 28, 38 y 48
+
+### Dominio
+- Dominio: P9
+- Contraseña: usac
+
+### Implementación STP
+- Variante: PVST
+
+## Backbone
+- **S_CONTABILIDAD**: 192.168.18.10
+- **S_IT**: 192.168.48.10
+- **S_RRHH**: 192.168.38.10
+
+## Centro Administrativo
+- **CONTABILIDAD2**: 192.168.18.02
+- **SECRETARIA**: 192.168.28.10
+- **RRHH**: 192.168.38.11
+- **IT_2**: 192.168.48.02
+
+## Área de Trabajo
+- **SECRETARIA1**: 192.168.28.01
+- **IT_1**: 192.168.48.01
+- **CONTABILIDAD_1**: 192.168.18.01
+- **SECRETARIA2**: 192.168.28.02
+- **RRHH1**: 192.168.38.01
+- **RRHH2**: 192.168.38.02
+
+
+## Contabilidad
+![Menu](https://i.ibb.co/Dz6vfXr/imagen-2024-09-06-001049764.png)
+## S_RRHH
+![Menu](https://i.ibb.co/smPWyHh/image.png)
+## Secretaria2 
+![Menu](https://i.ibb.co/6DM6J0z/image.png)
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+## Capturas de la implementación de las topologías
+### Centro Administrativo
+![Menu](https://i.ibb.co/TkSrQFM/image.png)
+### BACKBONE 
+![Menu](https://i.ibb.co/zXhm8Jd/image.png)
+### AREA DE TRABAJO
+![Menu](https://i.ibb.co/LRPRZjL/image.png)
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+## Detalle de los comandos usados
+-  ##### Comandos para configurar el sw1 como servidor 
+enable
+configure terminal
+vtp domain P9
+vtp password usac
+vtp mode server
+vlan 28
+name Contabilidad
+exit
+vlan 38
+name Secretaria
+exit
+vlan 48
+name RRHH
+exit
+vlan 58
+name IT
+exit
+rapid-pvst vlan 28,38,48,58 priority 0
+interface range fa0/1-5
+switchport trunk allowed vlan 28,38,48,58
+exit
+
+vlan para los sw 2 al 13
+enable
+configure terminal
+vlan 28
+name Contabilidad
+exit
+vlan 38
+name Secretaria
+exit
+vlan 48
+name RRHH
+exit
+vlan 58
+name IT
+exit
+
+
+-  ##### Comandos para configurar los sw desde el 2 hasta el 13 evitando el 9
+enable
+configure terminal
+vtp domain P9
+vtp password usac
+vtp mode client
+enable
+configure terminal
+interface range fa0/1-3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 28,38,48,58
+exit
+exit
+
+-  ##### Comando para configurar el SW9 en modo transparent
+enable
+configure terminal
+vtp domain P9
+vtp password usac
+vtp mode transparent
+
+-  ##### Comando para validar el modo stp en los switch
+enable
+show spanning-tree
+
+-  ##### Comando para cambiar de psvt a rstp-rapid pvst porque configure como par xd  
+enable
+configure terminal
+spanning-tree mode rapid-pvst
+
+
+## Ping entre hosts (solamente 2, ustedes eligen los orígenes y destinos).
+
+
+#### PING_CONTA2_CONTAOK_ITFAIL.png
+![Menu](https://i.ibb.co/qRg504B/image.png)
+
+
+#### NG_RRHH1_RRHHOK_CONTAFAIL
+![Menu](https://i.ibb.co/L12SW35/image.png)
+
+
+
+---
