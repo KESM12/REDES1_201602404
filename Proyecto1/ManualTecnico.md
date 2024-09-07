@@ -147,7 +147,7 @@ interface range fa0/1-5
 switchport trunk allowed vlan 28,38,48,58  
 exit  
 
-vlan para los sw2 al sw13
+-  ##### Comandos para la configuración de vlan's para los sw2 al sw13
 
 enable  
 configure terminal  
@@ -165,7 +165,7 @@ name IT
 exit  
 
 
--  ##### Comandos para configurar los sw desde el 2 hasta el 13 evitando el 9
+-  ##### Comandos para configurar el modo trunk en los sw2 al sw13
 enable  
 configure terminal  
 vtp domain P9  
@@ -180,7 +180,7 @@ switchport trunk allowed vlan 28,38,48,58
 exit  
 exit  
 
--  ##### Comando para configurar el SW9 en modo transparent
+-  ##### Comando para configurar el SW9 
 enable  
 configure terminal  
 vtp domain P9  
@@ -191,20 +191,14 @@ vtp mode transparent
 enable  
 show spanning-tree  
 
--  ##### Comando para cambiar de psvt a rstp-rapid pvst 
-enable  
-configure terminal  
-spanning-tree mode rapid-pvst  
-
-
 ## Ping entre hosts (solamente 2, ustedes eligen los orígenes y destinos).
 
 
-#### PING_CONTA2_CONTAOK_ITFAIL.png
+#### Ping entre la vpc de CONTABILIDAD2, CONTABILIDAD_1 y IT_1
 ![Menu](https://i.ibb.co/qRg504B/image.png)
 
 
-#### NG_RRHH1_RRHHOK_CONTAFAIL
+#### Ping entre la vpc de RRHH1, RRHH y CONTABILIDAD.
 ![Menu](https://i.ibb.co/L12SW35/image.png)
 
 
