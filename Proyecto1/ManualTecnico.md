@@ -67,12 +67,12 @@ Ip y vlan con terminación 8
 ## Configuración de Red
 
 ### Clientes
-- sw7, 8 y 10
-- 2, 3, 4, 5 y 6
-- 11, 12, 13
+- sw7, sw8 y sw10
+- sw2, sw3, sw4, sw5 y sw6
+- sw11, sw12, sw13
 
 ### Transparentes
-- 9
+- sw9
 
 ### Server
 - sw1 (servidor VTP y raíz STP)
@@ -83,7 +83,7 @@ Ip y vlan con terminación 8
 - Contraseña: usac
 
 ### Implementación STP
-- Variante: PVST
+- Variante: RSTP-rapid pvst
 
 ## Backbone
 - **S_CONTABILIDAD**: 192.168.18.10
@@ -125,12 +125,12 @@ Ip y vlan con terminación 8
 
 ## Detalle de los comandos usados
 -  ##### Comandos para configurar el sw1 como servidor 
-enable
-configure terminal
-vtp domain P9
-vtp password usac
-vtp mode server
-vlan 28
+enable 
+configure terminal 
+vtp domain P9 
+vtp password usac 
+vtp mode server 
+vlan 28 
 name Contabilidad
 exit
 vlan 38
