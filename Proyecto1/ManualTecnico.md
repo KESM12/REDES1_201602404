@@ -1,28 +1,27 @@
 ## Manual Técnico del Proyecto 1
  LABORATORIO REDES DE COMPUTADORAS 1
  Sección: A
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
+
+
+
+
+
+
 
 ### **Autor:**
 
 - Kevin - Carnet: 201602404
 - Richard Alexandro Marroquin Arana - Carnet: 202102894
-#
-#
-#
-#
-#
-#
+
+
+
+
+
+
+
+
+
+
 ### **Auxiliar:**
 - Carlos Roberto Quixtán Pérez
 
@@ -31,16 +30,7 @@
 ### **Título:**
 
 ### Manual Técnico del Proyecto 1
-#
-#
-#
-#
 
-#
-#
-#
-#
-#
 ---
 
 
@@ -54,9 +44,7 @@ Ellos necesitan que se cree una red donde diferentes departamentos puedan coexis
 compartiendo el mismo medio físico, esto con el fin de ahorrar costos en instalación,
 además es importante para ellos que exista redundancia, esto debido a que partes críticas
 de la infraestructura de la municipalidad estarán en la red que se creará.
-#
-#
-#
+
 
 ---
 ## Resumen de direcciones IP y VLAN
