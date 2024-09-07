@@ -194,7 +194,7 @@ show spanning-tree
 ## Ping entre hosts (solamente 2, ustedes eligen los orígenes y destinos).
 
 
-#### Ping entre la vpc de CONTABILIDAD2, CONTABILIDAD_1 y IT_1
+#### Ping entre la vpc de CONTABILIDAD2, CONTABILIDAD_1 y S_TI.
 ![Menu](https://i.ibb.co/qRg504B/image.png)
 
 
