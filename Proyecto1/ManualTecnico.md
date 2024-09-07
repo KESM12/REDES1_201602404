@@ -124,7 +124,7 @@ Ip y vlan con terminación 8
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 ## Detalle de los comandos usados
--  ##### Comandos para configurar el sw1 como servidor 
+-  ##### Comandos para configurar el sw1.
 enable  
 configure terminal  
 vtp domain P9  
@@ -165,7 +165,7 @@ name IT
 exit  
 
 
--  ##### Comandos para configurar el modo trunk en los sw2 al sw13
+-  ##### Comandos para configurar el modo trunk y el dominio en los sw2 al sw13.
 enable  
 configure terminal  
 vtp domain P9  
