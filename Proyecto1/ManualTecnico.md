@@ -126,80 +126,75 @@ Ip y vlan con terminación 8
 ## Detalle de los comandos usados
 -  ##### Comandos para configurar el sw1 como servidor 
 enable  
-
 configure terminal  
-
 vtp domain P9  
-
 vtp password usac  
-
 vtp mode server  
 vlan 28  
-
 name Contabilidad  
+exit  
+vlan 38  
+name Secretaria  
+exit  
+vlan 48  
+name RRHH  
+exit  
+vlan 58  
+name IT  
+exit  
+rapid-pvst vlan 28,38,48,58 priority 0  
+interface range fa0/1-5  
+switchport trunk allowed vlan 28,38,48,58  
+exit  
 
-exit
-vlan 38
-name Secretaria
-exit
-vlan 48
-name RRHH
-exit
-vlan 58
-name IT
-exit
-rapid-pvst vlan 28,38,48,58 priority 0
-interface range fa0/1-5
-switchport trunk allowed vlan 28,38,48,58
-exit
+vlan para los sw2 al sw13
 
-vlan para los sw 2 al 13
-enable
-configure terminal
-vlan 28
-name Contabilidad
-exit
-vlan 38
-name Secretaria
-exit
-vlan 48
-name RRHH
-exit
-vlan 58
-name IT
-exit
+enable  
+configure terminal  
+vlan 28  
+name Contabilidad  
+exit  
+vlan 38  
+name Secretaria  
+exit  
+vlan 48  
+name RRHH  
+exit  
+vlan 58  
+name IT  
+exit  
 
 
 -  ##### Comandos para configurar los sw desde el 2 hasta el 13 evitando el 9
-enable
-configure terminal
-vtp domain P9
-vtp password usac
-vtp mode client
-enable
-configure terminal
-interface range fa0/1-3
-switchport trunk encapsulation dot1q
-switchport mode trunk
-switchport trunk allowed vlan 28,38,48,58
-exit
-exit
+enable  
+configure terminal  
+vtp domain P9  
+vtp password usac  
+vtp mode client  
+enable  
+configure terminal  
+interface range fa0/1-#  
+switchport trunk encapsulation dot1q  
+switchport mode trunk  
+switchport trunk allowed vlan 28,38,48,58  
+exit  
+exit  
 
 -  ##### Comando para configurar el SW9 en modo transparent
-enable
-configure terminal
-vtp domain P9
-vtp password usac
-vtp mode transparent
+enable  
+configure terminal  
+vtp domain P9  
+vtp password usac  
+vtp mode transparent  
 
 -  ##### Comando para validar el modo stp en los switch
-enable
-show spanning-tree
+enable  
+show spanning-tree  
 
--  ##### Comando para cambiar de psvt a rstp-rapid pvst porque configure como par xd  
-enable
-configure terminal
-spanning-tree mode rapid-pvst
+-  ##### Comando para cambiar de psvt a rstp-rapid pvst 
+enable  
+configure terminal  
+spanning-tree mode rapid-pvst  
 
 
 ## Ping entre hosts (solamente 2, ustedes eligen los orígenes y destinos).
