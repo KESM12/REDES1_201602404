@@ -10,7 +10,7 @@
 
 ### **Autor:**
 
-- Kevin - Carnet: 201602404
+- Kevin Estuardo Secaida Molina - Carnet: 201602404
 - Richard Alexandro Marroquin Arana - Carnet: 202102894
 
 
