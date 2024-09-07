@@ -125,13 +125,19 @@ Ip y vlan con terminación 8
 
 ## Detalle de los comandos usados
 -  ##### Comandos para configurar el sw1 como servidor 
-enable 
-configure terminal 
-vtp domain P9 
-vtp password usac 
-vtp mode server 
-vlan 28 
-name Contabilidad
+enable  
+
+configure terminal  
+
+vtp domain P9  
+
+vtp password usac  
+
+vtp mode server  
+vlan 28  
+
+name Contabilidad  
+
 exit
 vlan 38
 name Secretaria
