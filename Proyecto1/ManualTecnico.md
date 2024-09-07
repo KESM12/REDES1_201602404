@@ -198,7 +198,7 @@ show spanning-tree
 ![Menu](https://i.ibb.co/qRg504B/image.png)
 
 
-#### Ping entre la vpc de RRHH1, RRHH y CONTABILIDAD.
+#### Ping entre la vpc de RRHH1, S_RRHH y S_CONTABILIDAD.
 ![Menu](https://i.ibb.co/L12SW35/image.png)
 
 
