@@ -86,30 +86,30 @@ Ip y vlan con terminación 8
 - Variante: RSTP-rapid pvst
 
 ## Backbone
-- **S_CONTABILIDAD**: 192.168.18.10
-- **S_IT**: 192.168.48.10
-- **S_RRHH**: 192.168.38.10
+- **S_CONTABILIDAD**: 192.168.18.10 // vlan: 28
+- **S_IT**: 192.168.48.10 // vlan: 58
+- **S_RRHH**: 192.168.38.10 // vlan: 48
 
 ## Centro Administrativo
-- **CONTABILIDAD2**: 192.168.18.02
-- **SECRETARIA**: 192.168.28.10
-- **RRHH**: 192.168.38.11
-- **IT_2**: 192.168.48.02
+- **CONTABILIDAD2**: 192.168.18.02 // vlan: 28
+- **SECRETARIA**: 192.168.28.10 // vlan: 38
+- **RRHH**: 192.168.38.11 // vlan: 48
+- **IT_2**: 192.168.48.02 // vlan: 58
 
 ## Área de Trabajo
-- **SECRETARIA1**: 192.168.28.01
-- **IT_1**: 192.168.48.01
-- **CONTABILIDAD_1**: 192.168.18.01
-- **SECRETARIA2**: 192.168.28.02
-- **RRHH1**: 192.168.38.01
-- **RRHH2**: 192.168.38.02
+- **SECRETARIA1**: 192.168.28.01 // vlan: 38
+- **IT_1**: 192.168.48.01 // vlan: 58
+- **CONTABILIDAD_1**: 192.168.18.01 // vlan: 28
+- **SECRETARIA2**: 192.168.28.02 // vlan: 38
+- **RRHH1**: 192.168.38.01 // vlan: 48
+- **RRHH2**: 192.168.38.02 // vlan: 48
 
 
-## Contabilidad
+## Contabilidad // vlan: 28
 ![Menu](https://i.ibb.co/Dz6vfXr/imagen-2024-09-06-001049764.png)
-## S_RRHH
+## S_RRHH // vlan: 48
 ![Menu](https://i.ibb.co/smPWyHh/image.png)
-## Secretaria2 
+## Secretaria2 // vlan: 38
 ![Menu](https://i.ibb.co/6DM6J0z/image.png)
 //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -191,7 +191,7 @@ vtp mode transparent
 enable  
 show spanning-tree  
 
-## Ping entre hosts (solamente 2, ustedes eligen los orígenes y destinos).
+## Ping entre hosts.
 
 
 #### Ping entre la vpc de CONTABILIDAD2, CONTABILIDAD_1 y S_TI.
