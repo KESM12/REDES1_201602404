@@ -8,7 +8,7 @@
 ### 1.2 Router R2.
 ![Config_R2](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_R2_1era.png)
 ### 1.3 Router R6.
-![Config_R2](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_R3_1era.png)
+![Config_R2](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_R6_1era.png)
 
 ## Configuración HSR
 ![Config_HSR](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_R2_2da.png)
@@ -23,10 +23,10 @@
 ## 3. Configuración de VPCs
 
 ### 3.1 VPC11
-![Config_VPC11](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_VPC11_1era.png)
+![Config_VPC11](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_VPC11.png)
 
 ### 3.2 VPC14
-![Config_VPC14](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_VPC14_1era.png)
+![Config_VPC14](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_VPC14.png)
 
 # Resumen de los Comandos Usados
 
