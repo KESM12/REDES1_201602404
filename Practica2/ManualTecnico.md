@@ -21,11 +21,12 @@
 ![Config_SW3](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_SW3_1era.png)
 
 ## 3. Configuración de VPCs
-![Config_SW3](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_SW3_1era.png)
+
 ### 3.1 VPC11
+![Config_VPC11](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_VPC11_1era.png)
 
 ### 3.2 VPC14
-
+![Config_VPC14](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_VPC14_1era.png)
 
 # Resumen de los Comandos Usados
 
