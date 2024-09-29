@@ -1,24 +1,263 @@
 Redes definidas como
-Dispositivo		interfaz	Ip		Mascara de subred
-R1			s1/0		10.0.0.1	/30 -- 255.255.255.252
-			f0/0		142.168.1.2	/29 -- 255.255.255.248
-			f0/1		142.168.2.2	/29 -- 255.255.255.248
-R2			f0/0		142.168.1.1	/29 -- 255.255.255.248
-			f0/1		142.168.0.2	/24
-R3			f0/0		142.168.2.1	/29 -- 255.255.255.248
-			f0/1		142.168.0.3	/24
-R2-R3			Virtual		142.168.0.1	/24
-VPC11			---		142.168.0.4	/24
-VPC13			---		142.168.0.5	/24
-R4			s1/0		10.0.0.2	/30 -- 255.255.255.252
-			f0/0 		142.178.1.1	/29 -- 255.255.255.248
-			f0/1		142.178.2.1	/29 -- 255.255.255.248
-R5			f0/0		142.172.1.2	/24
-			f0/1		142.178.0.2	/24
-R6			f0/0		142.178.2.2	/29 -- 255.255.255.248
-			f0/1		142.178.0.3	/24
-R5-R6			Virtual		142.178.0.1	/24
-VPC12			---		142.178.0.4	/24
-VPC14			---		142.178.0.5	/24 -- 255.255.255.0 
+Dispositivo|		interfaz|	Ip		|Mascara de subred|
+R1|		|	se1/0|		10.0.0.1|	/30 -- 255.255.255.252|
+		|	fa0/0|		142.168.1.2|	/29 -- 255.255.255.248|
+		|	fa0/1|		142.168.2.2|	/29 -- 255.255.255.248|
+R2		|	fa0/0|		142.168.1.1|	/29 -- 255.255.255.248|
+		|	fa0/1|		142.168.0.2|	/24|
+R3		|	fa0/0|		142.168.2.1|	/29 -- 255.255.255.248|
+		|	fa0/1|		142.168.0.3|	/24|
+R2-R3		|	Virtual	|	142.168.0.1|	/24|
+VPC11		|	---	|	142.168.0.4|	/24|
+VPC13		|	---	|	142.168.0.5|	/24|
+R4	|		se1/0	|	10.0.0.2|	/30 -- 255.255.255.252|
+	|		fa0/0 	|	142.178.1.1|	/29 -- 255.255.255.248|
+	|		fa0/1	|	142.178.2.1|	/29 -- 255.255.255.248|
+R5	|		fa0/0	|	142.172.1.2|	/24|
+	|		fa0/1	|	142.178.0.2|	/24|
+R6	|		fa0/0	|	142.178.2.2|	/29 -- 255.255.255.248|
+	|		fa0/1	|	142.178.0.3|	/24|
+R5-R6|			Virtual	|	142.178.0.1|	/24|
+VPC12|			---	|	142.178.0.4|	/24|
+VPC14|			---	|	142.178.0.5|	/24 -- 255.255.255.0 |
 	
 termine la configuración de swit1: me toca LACP entre switch2 y switch3
+
+Config R1 y R4
+enable
+configure terminal
+interface se0/0
+ip address 10.0.0.1 255.255.255.252
+no shutdown
+interface fa0/0
+ip address 142.168.1.2 255.255.255.248
+no shutdown
+interface fa0/1
+ip address 142.168.2.2 255.255.255.248
+no shutdown
+exit
+exit
+wr
+
+Config R2 - R6
+enable
+configure terminal
+interface fa0/0
+ip address 142.168.1.2 255.255.255.248
+no shutdown
+interface fa0/1
+ip address 142.168.2.2 255.255.255.248
+no shutdown
+exit
+exit
+wr
+
+
+
+Config R5
+enable
+configure terminal
+interface fa0/0
+ip address 142.178.2.2 255.255.255.248
+no shutdown
+interface fa0/1
+ip address 142.178.0.3 255.255.255.0
+no shutdown
+exit
+exit
+wr
+
+
+
+Config Sw0 - Sw1 (PAGP)
+enable
+configure terminal
+interface range fa0/1-2
+channel-group 1 mode desirable
+exit
+exit
+wr
+
+Config Sw2 - Sw3 (LACP)
+enable
+configure terminal
+interface range fa0/1-2
+channel-group 1 mode active
+exit
+exit
+wr
+
+Config R2 
+enable
+configure terminal
+interface fa0/1
+standby 1 ip 142.168.0.1
+standby 1 priority 110
+standby 1 preempt
+exit
+exit
+wr
+
+Config R3
+enable
+configure terminal
+interface fa0/1
+standby 1 ip 142.168.0.1
+exit
+exit
+wr
+
+Config R5
+enable
+configure terminal
+interface fa0/1
+standby 1 ip 142.178.0.1
+standby 1 priority 110
+standby 1 preempt
+exit
+exit
+wr
+
+Config R6
+enable
+configure terminal
+interface fa0/1
+standby 1 ip 142.178.0.1
+exit
+exit
+wr
+
+Rutas estaticas en R1
+enable
+configure terminal
+ip route 142.178.0.0 255.255.255.0 10.0.0.2
+exit
+wr
+
+Rutas estaticas en R4
+enable
+configure terminal
+ip route 142.168.0.0 255.255.255.0 10.0.0.1
+exit
+wr
+
+
+
+
+
+
+
+
+
+
+enable
+configure terminal
+interface s0/0
+ip address 10.0.0.1 255.255.255.252
+clock rate 64000
+no shutdown
+exit
+
+interface fa0/0
+ip address 142.168.1.2 255.255.255.248
+no shutdown
+exit
+
+interface fa0/1
+ip address 142.168.2.2 255.255.255.248
+no shutdown
+exit
+
+
+enable
+configure terminal
+interface s0/0
+ip address 10.0.0.2 255.255.255.252
+no shutdown
+exit
+
+interface fa0/0
+ip address 142.178.1.1 255.255.255.248
+no shutdown
+exit
+
+interface fa0/1
+ip address 142.178.2.1 255.255.255.248
+no shutdown
+exit
+
+
+Config R4
+enable
+configure terminal
+interface se0/0
+ip address 10.0.0.2 255.255.255.252
+no shutdown
+interface fa0/0
+ip address 142.178.1.1 255.255.255.248
+no shutdown
+interface fa0/1
+ip address 142.168.2.1 255.255.255.248
+no shutdown
+exit
+exit
+wr
+
+
+config r2
+ip route 142.168.1.0 255.255.255.248 142.168.1.2 
+ip route 142.178.1.0 255.255.255.248 142.168.1.2 
+ip route 142.178.2.0 255.255.255.248 142.168.1.2 
+ip route 142.168.2.0 255.255.255.248 142.168.1.2 
+ip route 142.178.0.0 255.255.255.0 142.168.1.2 
+ip route 142.168.0.0 255.255.255.0 142.168.0.1
+
+
+config r3
+ip route 10.0.0.0 255.255.255.252 142.168.2.2 
+ip route 142.168.2.0 255.255.255.248 142.168.2.2 
+ip route 142.168.1.0 255.255.255.248 142.168.2.2 
+ip route 142.178.0.0 255.255.255.0 142.168.2.2 
+ip route 142.178.1.0 255.255.255.0 142.168.2.2 
+ip route 142.178.2.0 255.255.255.0 142.168.2.2 
+ip route 142.168.0.0 255.255.255.0 142.168.0.1
+
+config r1
+ip route 142.178.1.0 255.255.255.248 10.0.0.2 
+ip route 142.178.2.0 255.255.255.248 10.0.0.2 
+ip route 142.178.0.0 255.255.255.0 10.0.0.2 
+ip route 10.0.0.0 255.255.255.252 10.0.0.2 
+ip route 142.168.2.0 255.255.255.248 142.168.2.1 
+ip route 142.168.1.0 255.255.255.248 142.168.1.1 
+ip route 142.168.0.0 255.255.255.0 142.168.1.1 
+ip route 142.168.0.0 255.255.255.0 142.168.2.1
+
+
+
+config r4
+ip route 142.178.1.0 255.255.255.248 142.178.1.2 
+ip route 142.178.2.0 255.255.255.248 142.178.2.2 
+ip route 10.0.0.0 255.255.255.252 10.0.0.1 
+ip route 142.168.1.0 255.255.255.248 10.0.0.1 
+ip route 142.168.2.0 255.255.255.248 10.0.0.1 
+ip route 142.168.0.0 255.255.255.0 10.0.0.1 
+ip route 142.178.0.0 255.255.255.0 142.178.2.2 
+ip route 142.178.0.0 255.255.255.0 142.178.1.2 
+
+config r5
+ip route 10.0.0.0 255.255.255.252 142.178.1.1 
+ip route 142.168.0.0 255.255.255.0 142.178.1.1 
+ip route 142.168.1.0 255.255.255.0 142.178.1.1 
+ip route 142.168.2.0 255.255.255.0 142.178.1.1 
+ip route 142.178.2.0 255.255.255.248 142.178.1.1 
+ip route 142.178.0.0 255.255.255.0 142.178.0.1 
+ip route 142.178.1.0 255.255.255.248 142.178.1.1 
+
+config r6
+ip route 10.0.0.0 255.255.255.252 142.178.2.1 
+ip route 142.168.0.0 255.255.255.0 142.178.2.1 
+ip route 142.168.1.0 255.255.255.248 142.178.2.1 
+ip route 142.168.2.0 255.255.255.248 142.178.2.1 
+ip route 142.178.1.0 255.255.255.248 142.178.2.1 
+ip route 142.178.0.0 255.255.255.0 142.178.0.1 
+ip route 142.178.2.0 255.255.255.248 142.178.2.1 

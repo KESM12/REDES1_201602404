@@ -30,15 +30,71 @@
 
 # Resumen de los Comandos Usados
 
-## 1. Creación de Ruta Estática
+## 1. Configuración R1 y R4 (modificar ip addres)
+```bash
+enable
+configure terminal
+interface se0/0
+ip address 10.0.0.1 255.255.255.252
+no shutdown
+interface fa0/0
+ip address 142.168.1.2 255.255.255.248
+no shutdown
+interface fa0/1
+ip address 142.168.2.2 255.255.255.248
+no shutdown
+exit
+exit
+wr
+```
 
-## 2. Creación de PortChannel con PAGP
+## 2. Configuración R2 - R6 (modificar ip addres)
+```bash
+enable
+configure terminal
+interface fa0/0
+ip address 142.168.1.2 255.255.255.248
+no shutdown
+interface fa0/1
+ip address 142.168.2.2 255.255.255.248
+no shutdown
+exit
+exit
+wr
+```
 
-## 3. Creación de PortChannel con LACP
 
-## 4. Creación de IP Virtual con HSRP
 
-## 5. Configuración de VPC
+## 3. Configuración Sw0 - Sw1 (PAGP)
+```bash
+enable
+configure terminal
+interface range fa0/1-2
+channel-group 1 mode desirable
+exit
+exit
+wr
+```
+## 4. Configuración Sw2 - Sw3 (LACP)
+```bash
+enable
+configure terminal
+interface range fa0/1-2
+channel-group 1 mode active
+exit
+exit
+wr
+```
+
+## 5. Configuración de rutas ip estáticas (cambiar ip's)
+```bash
+ip route 142.168.1.0 255.255.255.248 142.168.1.2 
+ip route 142.178.1.0 255.255.255.248 142.168.1.2 
+ip route 142.178.2.0 255.255.255.248 142.168.1.2 
+ip route 142.168.2.0 255.255.255.248 142.168.1.2 
+ip route 142.178.0.0 255.255.255.0 142.168.1.2 
+ip route 142.168.0.0 255.255.255.0 142.168.0.1
+```
 
 # Verificación del Funcionamiento de los Protocolos
 
@@ -70,3 +126,30 @@ ping <dirección_ip>
 ```bash
 show running-config
 ```
+
+
+# Configuración de redes.
+
+| **Dispositivo** | **Interfaz** | **IP**| **Máscara de Subred**|
+|-------------|----------|---------------|-----------------------------|
+| **R1**      | se1/0    | 10.0.0.1      | /30 -- 255.255.255.252      |
+|             | fa0/0    | 142.168.1.2   | /29 -- 255.255.255.248      |
+|             | fa0/1    | 142.168.2.2   | /29 -- 255.255.255.248      |
+| **R2**      | fa0/0    | 142.168.1.1   | /29 -- 255.255.255.248      |
+|             | fa0/1    | 142.168.0.2   | /24 -- 255.255.255.0        |
+| **R3**      | fa0/0    | 142.168.2.1   | /29 -- 255.255.255.248      |
+|             | fa0/1    | 142.168.0.3   | /24 -- 255.255.255.0        |
+|**R2-R3**    | Virtual  | 142.168.0.1   | /24 -- 255.255.255.0        |
+| **VPC11**   | ---      | 142.168.0.4   | /24 -- 255.255.255.0        |
+| **VPC13**   | ---      | 142.168.0.5   | /24 -- 255.255.255.0        |
+| **R4**      | se1/0    | 10.0.0.2      | /30 -- 255.255.255.252      |
+|             | fa0/0    | 142.178.1.1   | /29 -- 255.255.255.248      |
+|             | fa0/1    | 142.178.2.1   | /29 -- 255.255.255.248      |
+| **R5**      | fa0/0    | 142.172.1.2   | /24 -- 255.255.255.0        |
+|             | fa0/1    | 142.178.0.2   | /24 -- 255.255.255.0        |
+| **R6**      | fa0/0    | 142.178.2.2   | /29 -- 255.255.255.248      |
+|             | fa0/1    | 142.178.0.3   | /24 -- 255.255.255.0        |
+| **R5-R6**   | Virtual  | 142.178.0.1   | /24 -- 255.255.255.0        |
+| **VPC12**   | ---      | 142.178.0.4   | /24 -- 255.255.255.0        |
+| **VPC14**   | ---      | 142.178.0.5   | /24 -- 255.255.255.0        |
+|             |          |               |                             |
