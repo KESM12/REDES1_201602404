@@ -1,109 +1,71 @@
 # Manual Técnico
 
-## 1. Configuración de las VPCs
+## 1. Configuración de los Routers
 
-### 1.1. VPC de Administración
+### 1.1 Router R1.
+![Config_R1](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_R1_1era.png)
 
-- **IP Asignada:** 192.168.4.10
+### 1.2 Router R2.
+![Config_R2](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_R2_1era.png)
+### 1.3 Router R6.
+![Config_R2](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_R3_1era.png)
 
-![IpAdmin](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC0_ADMIN.jpg)
+## Configuración HSR
+![Config_HSR](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_R2_2da.png)
 
-### 1.2. VPC de Gerencia
+## 2. Configuración de Switches
 
-- **IP Asignada:** 192.168.04.11
+### 2.1 Switch SW1 - Configuración de PortChannel con PAGP
+![Config_SW1](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_SW1_1era.png)
+### 2.2 Switch SW3 - Configuración de PortChannel con LACP
+![Config_SW3](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_SW3_1era.png)
 
-![IpGeren](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC1_GEREN.jpg)
+## 3. Configuración de VPCs
+![Config_SW3](https://github.com/KESM12/REDES1_201602404/blob/main/Practica2/Images/Conf_SW3_1era.png)
+### 3.1 VPC11
 
-### 1.3. VPC de Soporte al Cliente 
-
-- **IP Asignada:** 192.168.04.13
-
-![IpSopClient1](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC2_SCLIENT0.jpg)
-
-### 1.4. VPC de Recursos Humanos
-
-- **IP Asignada:** 192.168.04.15
-
-![IpRecHuman](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC4_RECHUMAN0.jpg)
-
-### 1.5. VPC de Oficina A 
-
-- **IP Asignada:** 192.168.04.2
-
-![IpOfA](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC11_OFA1.jpg)
-
-### 1.6. VPC de Oficina B 
-
-- **IP Asignada:** 192.168.04.23
-
-![IpOfB](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC14_OFB1.jpg)
-
-### 1.7. VPC de Oficina C
-
-- **IP Asignada:** 192.168.04.29
-
-![IpOfB](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC14_OFB1.jpg)
-
-### 1.8. VPC de Recepción
-
-- **IP Asignada:** 192.168.04.3
-
-![IpRec](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC23-REC.jpg)
-
-### 1.9. VPC de TI.
-
-- **IP Asignada:** 192.168.04.31
-
-![IpTI](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC24-TI1.jpg)
-
-### 1.10. VPC de Ventas.
-
-- **IP Asignada:** 192.168.04.34
-
-![IpTI](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PC2_SCLIENT0.jpg)
+### 3.2 VPC14
 
 
-## 2. Pruebas de Comunicación entre Áreas
+# Resumen de los Comandos Usados
 
-### 2.1. Ping desde VPC de Oficina B6 a VPC de Recurso Humanos 5
+## 1. Creación de Ruta Estática
 
-- **Comando:** `ping 192.168.04.1`
+## 2. Creación de PortChannel con PAGP
 
-![Ping Ofb6 a RecHuman5](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PING_OFB6_RECHUM5.jpg)
+## 3. Creación de PortChannel con LACP
 
-### 2.2. Ping desde VPC de Recursos Humanos 3 a VPC de Secretaria del Gerente
+## 4. Creación de IP Virtual con HSRP
 
-- **Comando:** `ping 192.168.04.12`
+## 5. Configuración de VPC
 
-![Ping RecHumn2 a Secgeren](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PING_RECHUM2_SECGEREN.jpg)
+# Verificación del Funcionamiento de los Protocolos
 
-### 2.3. Ping desde VPC de Recursos Humanos a VPC de Recepción
+## 1. Verificación de PortChannel
 
-- **Comando:** `ping 192.168.04.3`
+```bash
+show etherchannel summary
+```
 
-![Ping Rechum0 a Rec](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PING_RECHUMAN0_REC.jpg)
+## 2. Verificación de HSRP
 
-### 2.4. Ping desde VPC de TI1 a VPC de Oficina A2
+```bash
+show standby
+```
 
-- **Comando:** `ping 192.168.04.21`
+## 3. Verificación de Rutas Estáticas
 
-![Ping TI1 Ofa2](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PING_TI1_OFA2.jpg)
+```bash
+show ip route
+```
 
-### 2.5. Ping desde VPC de TI2 a VPC de Gerencia
+## 4. Verificación de Conectividad (Ping entre VPCs)
 
-- **Comando:** `ping 192.168.04.11`
+```bash
+ping <dirección_ip>
+```
 
-![Ping Ti2 a Geren](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/PING_TI2_GEREN.jpg)
-
-## 3. Captura de Paquete ARP/ICMP
-
-### 3.1. Descripción de la Captura
-
-La captura de paquetes se realizó para analizar el tráfico ARP/ICMP entre la VPC de Gerencia (PC1) y la VPC de TI 1 (PC 25) durante una prueba de ping.
-
-### 3.2. Captura de Pantalla
-
-![Captura de Paquete ARP/ICMP](https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/ARP-ICMP.jpg)
-
-
-[vpcAdminConfig]: (https://github.com/KESM12/REDES1_201602404/blob/main/Practica1/imagenes/ARP-ICMP.jpg)
+## 5. Verificación de la configuración en los Routers
+```bash
+show running-config
+```
