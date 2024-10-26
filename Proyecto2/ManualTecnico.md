@@ -433,3 +433,56 @@ Necesitamos 3 bits para los hosts (2^3−2=6), así que usamos una máscara /29 
 FLSM: Todas las subredes usaron /27 para soportar hasta 30 hosts cada una, resultando en desperdicio de IPs para RRHH y Contabilidad.
 
 VLSM: Cada sede tiene una subred adaptada a su tamaño específico, optimizando el uso de IPs y permitiendo un mayor aprovechamiento de la red.
+
+### Comandos utilizados.
+
+**Configuración de HSRP en J1 y J2 (Jutiapa)**
+
+```
+            En el Router J1:
+interface g0/1
+ip address 192.168.9.1 255.255.255.0
+standby 1 ip 192.168.9.1
+standby 1 priority 110
+standby 1 preempt
+exit
+
+            En el Router J2:
+interface g0/1
+ip address 192.168.9.2 255.255.255.0
+standby 1 ip 192.168.9.1
+standby 1 priority 100
+standby 1 preempt
+exit
+```
+
+**Configuración de LACP entre SW2 y SW3**
+```
+        En SW2:
+interface range g0/1 - 2
+channel-group 1 mode active
+exit
+interface port-channel 1
+switchport mode trunk
+exit
+
+        En SW3:
+interface range g0/1 - 2
+channel-group 1 mode active
+exit
+interface port-channel 1
+switchport mode trunk
+exit
+```
+
+**CONFIGURACION DE EIGRP (QUICHE, PETEN, IZABAL)**
+```
+enable
+configure terminal
+router eigrp 100
+redistribute ospf 1 metric 10000 10 255 1 1500
+exit
+exit
+wr
+show ip route
+```
