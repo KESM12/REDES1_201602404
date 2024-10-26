@@ -388,70 +388,48 @@ Sección: A
 ### Core
 ![Core](https://github.com/MRICHARDA/redes1_202102894/blob/b07fa482f8f5bfd5f67cdeab912300fd6dead87e/Proyecto2/images/Core.png)
 
-## Detalle de los comandos usados
--  ##### Comandos para configurar el sw1.
-enable  
-configure terminal  
-vtp domain P9  
-vtp password usac  
-vtp mode server  
-vlan 28  
-name Contabilidad  
-exit  
-vlan 38  
-name Secretaria  
-exit  
-vlan 48  
-name RRHH  
-exit  
-vlan 58  
-name IT  
-exit  
-rapid-pvst vlan 28,38,48,58 priority 0  
-interface range fa0/1-5  
-switchport trunk allowed vlan 28,38,48,58  
-exit  
+## Resumen de la configuración.
 
--  ##### Comandos para la configuración de vlan's para los sw2 al sw13
+### Calculo de FLSM
 
-enable  
-configure terminal  
-vlan 28  
-name Contabilidad  
-exit  
-vlan 38  
-name Secretaria  
-exit  
-vlan 48  
-name RRHH  
-exit  
-vlan 58  
-name IT  
-exit  
+- RRHH: 10 PCs
+- Contabilidad: 5 PCs
+- Ventas: 25 PCs
 
+Para simplificar, asumiremos que estas son las únicas subredes en la red.
 
--  ##### Comandos para configurar el modo trunk y el dominio en los sw2 al sw13.
-enable  
-configure terminal  
-vtp domain P9  
-vtp password usac  
-vtp mode client  
-enable  
-configure terminal  
-interface range fa0/1-#  
-switchport trunk encapsulation dot1q  
-switchport mode trunk  
-switchport trunk allowed vlan 28,38,48,58  
-exit  
-exit  
+Usando la formula:
+    2^h - 2 >= 25
+Nos da:
+    (2^5)-2 = 30
 
--  ##### Comando para configurar el SW9 
-enable  
-configure terminal  
-vtp domain P9  
-vtp password usac  
-vtp mode transparent  
+Entonces, necesitamos 5 bits para los hots y el resto de bits para la red.
 
--  ##### Comando para validar el modo stp en los switch
-enable  
-show spanning-tree  
+Calcular la mascara de subred.
+Ipv4: 32 - 5 bits = 27 bits para la red.
+Por lo que se tendria una mascara de subred igual a /27 o en su defecto 255.255.255.224.
+
+Por ultimo solo queda asignar la misma mascara de subred para todas las vlans y en el rango de ip's establecidos.
+
+### Calculo de VLSM
+
+- Ventas: 25 PCs
+- RRHH: 10 PCs
+- Contabilidad: 5 PCs
+
+Asignamos el tamaño de subred para cada sede.
+Ventas (25 hosts):
+
+Necesitamos 5 bits para los hosts (2^5−2=30), así que usamos una máscara /27 o 255.255.255.224.
+
+RRHH (10 hosts):
+
+Necesitamos 4 bits para los hosts (2^4−2=14), por lo que usamos una máscara /28 o 255.255.255.240.
+
+Contabilidad (5 hosts):
+
+Necesitamos 3 bits para los hosts (2^3−2=6), así que usamos una máscara /29 o 255.255.255.248.
+
+FLSM: Todas las subredes usaron /27 para soportar hasta 30 hosts cada una, resultando en desperdicio de IPs para RRHH y Contabilidad.
+
+VLSM: Cada sede tiene una subred adaptada a su tamaño específico, optimizando el uso de IPs y permitiendo un mayor aprovechamiento de la red.
